@@ -8,7 +8,6 @@ that can easily be changed in `worker.js`. Additionally allowed paths
 are a whitelist that can also be changed.
 
 - `levels_editor_get`
-- `player_fetch_data`
 - `levels_query_curated`
 - `time_trial_query_leaderboard`
 - `query_player_profile`
