@@ -1,5 +1,5 @@
 async function handleRequest(request, env, ctx) {
-	const DOMAINS = ['twhlynch.me'];
+	const DOMAINS = ['twhlynch.me', '127.0.0.1', 'localhost'];
 
 	const headers = new Headers({
 		'Content-Type': 'text/plain',
@@ -13,7 +13,11 @@ async function handleRequest(request, env, ctx) {
 		try {
 			const hostname = new URL(origin).hostname;
 			const domain = hostname.split('.').slice(-2).join('.');
-			if (DOMAINS.includes(domain)) {
+			if (
+				DOMAINS.includes(domain) ||
+				hostname === 'localhost' ||
+				hostname === '127.0.0.1'
+			) {
 				headers.set('Access-Control-Allow-Origin', origin);
 			}
 		} catch {
@@ -84,7 +88,6 @@ async function handleRequest(request, env, ctx) {
 
 		const allowed_paths = [
 			'levels_editor_get',
-			'player_fetch_data',
 			'levels_query_curated',
 			'time_trial_query_leaderboard',
 			'query_player_profile',
