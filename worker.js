@@ -89,8 +89,11 @@ async function handleRequest(request, env, ctx) {
 		const allowed_paths = [
 			'levels_editor_get',
 			'levels_query_curated',
-			'time_trial_query_leaderboard',
+			'levels_query_new',
+			'levels_query_most_favorited',
+			'levels_search',
 			'query_player_profile',
+			'time_trial_query_leaderboard',
 		];
 		if (!allowed_paths.find((p) => path.startsWith(p))) {
 			return new Response('Requested path not allowed', {
